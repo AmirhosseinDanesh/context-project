@@ -5,8 +5,8 @@ import { GrClose } from "react-icons/gr"
 import productsContext from '../../Contexts/ProductsContext'
 
 export default function Cart() {
-    
-    const contextData = useContext(productsContext) 
+
+    const contextData = useContext(productsContext)
 
     return (
         <aside className={`${contextData.isShowCart ? "active" : " "} sidebar`}>
@@ -18,39 +18,41 @@ export default function Cart() {
                     </span>
                 </span>
                 <span>
-                    <GrClose style={{cursor:"pointer"}} onClick={()=>{
+                    <GrClose style={{ cursor: "pointer" }} onClick={() => {
                         contextData.setIsShowCart(false)
                     }} />
                 </span>
             </h3>
 
             <div className="sidebar-body px-1 ">
-                <div className="col-12 py-2 sidebarpr">
-                    <div className='prCart d-flex align-items-center '>
-                        <div className='prCartPic col-2'>
-                            <img className='prCartPicStyle' src="./images/server.jpg" alt="" width={"65px"} />
-                        </div>
-                        <div className='prCartInfo col-10 text-center'>
-                            <h5>
-                                IranServer P1
-                            </h5>
-                            <div className="prCartCount d-flex justify-content-around align-items-center">
-                                <span>
-                                    price: 100$
-                                </span>
-                                <span>
-                                    count: 1
-                                </span>
-                                <div className='prCartAddBtn'>
-                                    <button className='btnAdd'>Add  +1</button>
+                {
+                    contextData.userCart.map(product => (
+                        <div className="col-12 py-2 sidebarpr" key={product.id}>
+                            <div className='prCart d-flex align-items-center '>
+                                <div className='prCartPic col-2'>
+                                    <img className='prCartPicStyle' src={product.src} alt="" width={"65px"} />
+                                </div>
+                                <div className='prCartInfo col-10 text-center'>
+                                    <h5>
+                                        {product.title}
+                                    </h5>
+                                    <div className="prCartCount d-flex justify-content-around align-items-center">
+                                        <span>
+                                            {product.price}$
+                                        </span>
+                                        <span>
+                                            {product.count}
+                                        </span>
+                                        <div className='prCartAddBtn'>
+                                            <button className='btnAdd'>Add  +1</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-
+                    ))
+                }
             </div>
-        </aside>
+        </aside >
     )
 }

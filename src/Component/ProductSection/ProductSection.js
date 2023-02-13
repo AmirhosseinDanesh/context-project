@@ -29,11 +29,22 @@ export default function ProductSection() {
 
                                                 <a href="javascript:void(0)" className="btn btn-danger col-9" onClick={() => {
                                                     contextData.setIsShowToast(true)
+                                                    
                                                     setTimeout(() => {
-                                                        
                                                         contextData.setIsShowToast(false)
-
                                                     }, 3000);
+                                                
+                                                    let newUserProductCart = {
+                                                        id:contextData.userCart.length + 1 ,
+                                                        title : productinfo.title,
+                                                        price : productinfo.price,
+                                                        count: 1,
+                                                        src: productinfo.img
+                                                    }
+                                                    
+                                                    contextData.setUserCart(prevProduct =>(
+                                                        [...prevProduct , newUserProductCart]
+                                                    ))
                                                 }}>
                                                     Add
                                                 </a>
