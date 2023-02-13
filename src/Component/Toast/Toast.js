@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import productsContext from '../../Contexts/ProductsContext'
 
 export default function Toast() {
+    
+    const contextToastStatus = useContext(productsContext)
+    
     return (
-
         <div className="position-fixed bottom-0 end-0 p-3" style={{ zIndex: 1000000 }}>
-            <div id="liveToast" className="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="liveToast" className={`${contextToastStatus.isShowToast? "show" : "hide"} toast`} role="alert" aria-live="assertive" aria-atomic="true">
                 <div className="toast-header">
                     <strong className="me-auto text-black">YZ Server</strong>
                     <small className='text-black'>Now</small>

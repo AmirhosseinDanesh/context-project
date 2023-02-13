@@ -11,7 +11,7 @@ import productsContext from './Contexts/ProductsContext'
 export default function App() {
   const [allProduct, setAllProduct] = useState(ProductData)
   const [userCart, setUserCart] = useState([])
-  const [isShowToast, setIIsShowToast] = useState(false)
+  const [isShowToast, setIsShowToast] = useState(false)
   const [isShowCart, setIsShowCart] = useState(false)
   return (
     <div>
@@ -20,7 +20,7 @@ export default function App() {
         userCart,
         setUserCart,
         isShowToast,
-        setIIsShowToast,
+        setIsShowToast,
         isShowCart,
         setIsShowCart
       }}>
