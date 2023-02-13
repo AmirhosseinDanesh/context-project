@@ -18,9 +18,7 @@ export default function Cart() {
                     </span>
                 </span>
                 <span>
-                    <GrClose style={{ cursor: "pointer" }} onClick={() => {
-                        contextData.setIsShowCart(false)
-                    }} />
+                    <GrClose style={{ cursor: "pointer" }} onClick={() => contextData.setIsShowCart(false)} />
                 </span>
             </h3>
 

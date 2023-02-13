@@ -7,6 +7,40 @@ import "./ProductSection.css"
 
 export default function ProductSection() {
     const contextData = useContext(productsContext)
+    const addToCart = productinfo => {
+        contextData.setIsShowToast(true)
+        setTimeout(() => {
+            contextData.setIsShowToast(false)
+
+
+        }, 2000);
+
+        let newUserProductCart = {
+            id: contextData.userCart.length + 1,
+            title: productinfo.title,
+            price: productinfo.price,
+            count: 1,
+            src: productinfo.img
+        }
+        let isProductInCart = contextData.userCart.some(product => (
+            product.title === productinfo.title
+        ))
+        if (!isProductInCart) {
+            contextData.setUserCart(prevProduct => (
+                [...prevProduct, newUserProductCart]
+            ))
+        }
+        else {
+            let userCart = [...contextData.userCart]
+            let newUserCart = userCart.map(product => {
+                if (product.title === productinfo.title) {
+                    product.count += 1;
+                }
+                return product
+            })
+            contextData.setUserCart(newUserCart)
+        }
+    }
     return (
         <>
             {
@@ -25,41 +59,7 @@ export default function ProductSection() {
                                             <p className="price fs-4">{productinfo.price}$</p>
                                             <br />
                                             <div className="d-flex flex-column align-items-center">
-                                                <a href="#!" className="btn btn-danger col-9" onClick={() => {
-                                                    contextData.setIsShowToast(true)
-                                                    setTimeout(() => {
-                                                        contextData.setIsShowToast(false)
-
-
-                                                    }, 2000);
-
-                                                    let newUserProductCart = {
-                                                        id: contextData.userCart.length + 1,
-                                                        title: productinfo.title,
-                                                        price: productinfo.price,
-                                                        count: 1,
-                                                        src: productinfo.img
-                                                    }
-                                                    let isProductInCart = contextData.userCart.some(product => (
-                                                        product.title === productinfo.title
-                                                    ))
-                                                    if (!isProductInCart) {
-                                                        contextData.setUserCart(prevProduct => (
-                                                            [...prevProduct, newUserProductCart]
-                                                        ))
-                                                    }
-                                                    else {
-                                                        let userCart = [...contextData.userCart]
-                                                        let newUserCart = userCart.map(product => {
-                                                            if (product.title === productinfo.title) {
-                                                                product.count += 1;
-                                                            }
-                                                            return product
-                                                        })
-                                                        contextData.setUserCart(newUserCart)
-                                                    }
-
-                                                }}>
+                                                <a href="#!" className="btn btn-danger col-9" onClick={()=>addToCart(productinfo)}>
                                                     Add
                                                 </a>
                                                 <a href="#!" className="btn btn-outline-dark  col-9 mt-2">

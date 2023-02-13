@@ -15,7 +15,8 @@ export default function Toast() {
                     <small className='text-black'>Now</small>
                     <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close" onClick={() => {
                         contextData.setIsShowToast(false)
-                    }}></button>
+                    }}>
+                    </button>
                 </div>
                 <div className="toast-body text-black">
                     Product Added To Your Cart!

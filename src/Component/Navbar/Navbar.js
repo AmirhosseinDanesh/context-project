@@ -27,10 +27,7 @@ export default function Navbar() {
                 <ul className='navbar-nav '>
                     <li className='nav-item ms-5 '>
                         <a href="#!" className='nav-link fs-4 d-flex align-items-center'>
-                            <AiOutlineShoppingCart style={{ fontSize: "2rem" , color:"white" }} onClick={()=>{
-                                contextData.setIsShowCart(true)
-                                
-                            }} />
+                            <AiOutlineShoppingCart style={{ fontSize: "2rem", color: "white" }} onClick={() => contextData.setIsShowCart(true)} />
                             <span className='badge bg-primary rounded-pill fs-6 bg-product-counter'>0</span>
                         </a>
                     </li>
