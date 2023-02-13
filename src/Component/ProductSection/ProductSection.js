@@ -3,11 +3,11 @@ import productsContext from '../../Contexts/ProductsContext'
 import "./ProductSection.css"
 
 export default function ProductSection() {
-    const contextproductData = useContext(productsContext)
+    const contextData = useContext(productsContext)
     return (
         <>
             {
-                contextproductData.allProduct.map(product => (
+                contextData.allProduct.map(product => (
                     <div className='row justify-content-center mt-5'>
                         <h3 className='text-center'>{product.title}</h3>
                         {
@@ -22,7 +22,9 @@ export default function ProductSection() {
                                             <p className="price fs-4">{productinfo.price}$</p>
                                             <br />
                                             <div className="d-flex flex-column align-items-center">
-                                                <a href="/" className="btn btn-danger col-9">
+                                                <a href="/" className="btn btn-danger col-9" onClick={()=>{
+                                                    contextData.setIsShowToast(true)
+                                                }}>
                                                     Add
                                                 </a>
                                                 <a href="/" className="btn btn-outline-dark  col-9 mt-2">
