@@ -13,12 +13,12 @@ export default function Navbar() {
 
                 <ul className='navbar-nav me-auto ms-5 '>
                     <li className="nav-item">
-                        <a href="/" className="nav-link text-white fs-4">
+                        <a href="#!" className="nav-link text-white fs-4">
                             Servers
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a href="/" className="nav-link text-white fs-4">
+                        <a href="#!" className="nav-link text-white fs-4">
                             hosts
                         </a>
                     </li>
@@ -26,7 +26,7 @@ export default function Navbar() {
                 </ul>
                 <ul className='navbar-nav '>
                     <li className='nav-item ms-5 '>
-                        <a href="javascript:void(0)" className='nav-link fs-4 d-flex align-items-center'>
+                        <a href="#!" className='nav-link fs-4 d-flex align-items-center'>
                             <AiOutlineShoppingCart style={{ fontSize: "2rem" , color:"white" }} onClick={()=>{
                                 contextData.setIsShowCart(true)
                                 

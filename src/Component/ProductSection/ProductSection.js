@@ -15,7 +15,7 @@ export default function ProductSection() {
                         <h3 className='text-center'>{product.title}</h3>
                         {
                             product.configs.map((productinfo) => (
-                                <div className="col-sm-10 col-md-5 col-lg-4 col-xl-3 mt-5">
+                                <div key={productinfo.id} className="col-sm-10 col-md-5 col-lg-4 col-xl-3 mt-5">
                                     <div className="card p-3">
                                         <div className="col-12 text-center">
                                             <img className='card-img-top  w-75' src={productinfo.img} alt="" />
@@ -27,28 +27,45 @@ export default function ProductSection() {
                                             <div className="d-flex flex-column align-items-center">
 
 
-                                                <a href="javascript:void(0)" className="btn btn-danger col-9" onClick={() => {
+                                                <a href="#!" className="btn btn-danger col-9" onClick={() => {
                                                     contextData.setIsShowToast(true)
-                                                    
+                                                    // contextData.setIsShowCart(true)
                                                     setTimeout(() => {
                                                         contextData.setIsShowToast(false)
+                                                        // contextData.setIsShowCart(false)
+
                                                     }, 3000);
-                                                
+
                                                     let newUserProductCart = {
-                                                        id:contextData.userCart.length + 1 ,
-                                                        title : productinfo.title,
-                                                        price : productinfo.price,
+                                                        id: contextData.userCart.length + 1,
+                                                        title: productinfo.title,
+                                                        price: productinfo.price,
                                                         count: 1,
                                                         src: productinfo.img
                                                     }
-                                                    
-                                                    contextData.setUserCart(prevProduct =>(
-                                                        [...prevProduct , newUserProductCart]
+                                                    let isProductInCart = contextData.userCart.some(product => (
+                                                        product.title === productinfo.title
                                                     ))
+                                                    if (!isProductInCart) {
+                                                        contextData.setUserCart(prevProduct => (
+                                                            [...prevProduct, newUserProductCart]
+                                                        ))
+                                                    }
+                                                    else {
+                                                        let userCart = [...contextData.userCart]
+                                                        let newUserCart = userCart.map(product => {
+                                                            if (product.title === productinfo.title) {
+                                                                product.count += 1;
+                                                            }
+                                                            return product
+                                                        })
+                                                        contextData.setUserCart(newUserCart)
+                                                    }
+
                                                 }}>
                                                     Add
                                                 </a>
-                                                <a href="javascript:void(0)" className="btn btn-outline-dark  col-9 mt-2">
+                                                <a href="#!" className="btn btn-outline-dark  col-9 mt-2">
                                                     More Information
                                                 </a>
                                                 <p className="countProduct mt-2">

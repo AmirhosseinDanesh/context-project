@@ -16,7 +16,7 @@ const ProductData =[
         ]
     },
     {
-        title:"Iran Host",
+        title:"USA Host",
         configs:[
             {id:1 , title: "USA1" , img: "./images/host.jpg", price : "200", count:10},
             {id:2 , title: "USA2" , img: "./images/host.jpg", price : "300", count:10},
