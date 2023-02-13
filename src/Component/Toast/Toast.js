@@ -3,8 +3,8 @@ import React from 'react'
 export default function Toast() {
     return (
 
-        <div className="position-fixed bottom-0 end-0 p-3" style={{ zIndex: 11 }}>
-            <div id="liveToast" className="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div className="position-fixed bottom-0 end-0 p-3" style={{ zIndex: 1000000 }}>
+            <div id="liveToast" className="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
                 <div className="toast-header">
                     <strong className="me-auto text-black">YZ Server</strong>
                     <small className='text-black'>Now</small>
