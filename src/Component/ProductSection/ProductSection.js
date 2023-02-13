@@ -25,16 +25,13 @@ export default function ProductSection() {
                                             <p className="price fs-4">{productinfo.price}$</p>
                                             <br />
                                             <div className="d-flex flex-column align-items-center">
-
-
                                                 <a href="#!" className="btn btn-danger col-9" onClick={() => {
                                                     contextData.setIsShowToast(true)
-                                                    // contextData.setIsShowCart(true)
                                                     setTimeout(() => {
                                                         contextData.setIsShowToast(false)
-                                                        // contextData.setIsShowCart(false)
 
-                                                    }, 3000);
+
+                                                    }, 2000);
 
                                                     let newUserProductCart = {
                                                         id: contextData.userCart.length + 1,
