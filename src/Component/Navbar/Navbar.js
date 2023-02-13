@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Navbar.css"
 import { AiOutlineShoppingCart } from "react-icons/ai"
+import productsContext from '../../Contexts/ProductsContext'
 export default function Navbar() {
+    const contextData = useContext(productsContext)
     return (
         <div className='navbar navbar-expand-lg'>
             <div className="container">
@@ -24,8 +26,11 @@ export default function Navbar() {
                 </ul>
                 <ul className='navbar-nav '>
                     <li className='nav-item ms-5 '>
-                        <a href="/" className='nav-link fs-4 d-flex align-items-center'>
-                            <AiOutlineShoppingCart style={{ fontSize: "2rem" , color:"white" }} />
+                        <a href="javascript:void(0)" className='nav-link fs-4 d-flex align-items-center'>
+                            <AiOutlineShoppingCart style={{ fontSize: "2rem" , color:"white" }} onClick={()=>{
+                                contextData.setIsShowCart(true)
+                                
+                            }} />
                             <span className='badge bg-primary rounded-pill fs-6 bg-product-counter'>0</span>
                         </a>
                     </li>

@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Cart.css"
 import { FaCartPlus } from "react-icons/fa"
 import { GrClose } from "react-icons/gr"
+import productsContext from '../../Contexts/ProductsContext'
 
 export default function Cart() {
+    
+    const contextData = useContext(productsContext) 
+
     return (
-        <aside className='sidebar'>
+        <aside className={`${contextData.isShowCart ? "active" : " "} sidebar`}>
             <h3 className='sidebar-title d-flex justify-content-between  p-2 m-0 '>
                 <span className='d-flex justify-content-center '>
                     <FaCartPlus />
@@ -14,7 +18,9 @@ export default function Cart() {
                     </span>
                 </span>
                 <span>
-                    <GrClose />
+                    <GrClose style={{cursor:"pointer"}} onClick={()=>{
+                        contextData.setIsShowCart(false)
+                    }} />
                 </span>
             </h3>
 

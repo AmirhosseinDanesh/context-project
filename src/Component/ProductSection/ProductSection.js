@@ -30,7 +30,9 @@ export default function ProductSection() {
                                                 <a href="javascript:void(0)" className="btn btn-danger col-9" onClick={() => {
                                                     contextData.setIsShowToast(true)
                                                     setTimeout(() => {
+                                                        
                                                         contextData.setIsShowToast(false)
+
                                                     }, 3000);
                                                 }}>
                                                     Add

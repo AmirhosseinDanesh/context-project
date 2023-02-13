@@ -1,13 +1,14 @@
 .sidebar {
   position: fixed;
   top: 0;
-  right: -200px;
+  right: -400px;
   width: 400px;
   height: 100vh;
   opacity: 0;
   z-index: 9999;
   background-color: var(--white);
   overflow-y:auto;
+  transition:0.5s;
 }
 
 .sidebar.active {
