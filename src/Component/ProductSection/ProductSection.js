@@ -1,3 +1,6 @@
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, { useContext } from 'react'
 import productsContext from '../../Contexts/ProductsContext'
 import "./ProductSection.css"
@@ -22,12 +25,14 @@ export default function ProductSection() {
                                             <p className="price fs-4">{productinfo.price}$</p>
                                             <br />
                                             <div className="d-flex flex-column align-items-center">
-                                                <a href="/" className="btn btn-danger col-9" onClick={()=>{
+
+
+                                                <a href="javascript:void(0)" className="btn btn-danger col-9" onClick={() => {
                                                     contextData.setIsShowToast(true)
                                                 }}>
                                                     Add
                                                 </a>
-                                                <a href="/" className="btn btn-outline-dark  col-9 mt-2">
+                                                <a href="javascript:void(0)" className="btn btn-outline-dark  col-9 mt-2">
                                                     More Information
                                                 </a>
                                                 <p className="countProduct mt-2">
